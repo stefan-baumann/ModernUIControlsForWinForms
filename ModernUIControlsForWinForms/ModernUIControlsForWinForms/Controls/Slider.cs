@@ -191,7 +191,7 @@ namespace ModernUIControlsForWinForms
             g.DrawRectangle(new Pen(slider.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(slider.Width - 2, slider.Height - 2)));
 
             //Draw the middle part
-            var InnerColor = GetInnerColor(slider.SliderOnColor, slider.SliderOnColor, slider.on, slider.MouseState);
+            var InnerColor = GetInnerColor(slider.SliderOnColor, slider.SliderOnColor, slider.On, slider.MouseState);
             g.FillRectangle(new SolidBrush(InnerColor), new Rectangle(new Point(4, 4), new Size(slider.Width - 8, slider.Height - 8)));
 
             //Draw the Slider Bar
@@ -245,7 +245,7 @@ namespace ModernUIControlsForWinForms
                     case MouseState.MouseDown:
                         return ColorHelpers.ColorFromHSL(offColor.GetHue(), offColor.GetSaturation(), (float)Math.Max(0, Math.Max(1, offColor.GetBrightness() * 1.15)));
                     default:
-                        return onColor;
+                        return offColor;
                 }
         }
 

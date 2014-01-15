@@ -30,10 +30,10 @@
         {
             this.AssemblyComboBox = new System.Windows.Forms.ComboBox();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.HostPanel = new System.Windows.Forms.Panel();
+            this.TestControlPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.ComboBoxPanel = new System.Windows.Forms.Panel();
             this.ControlComboBox = new System.Windows.Forms.ComboBox();
-            this.TestControlPropertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.HostPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
             this.MainSplitContainer.Panel1.SuspendLayout();
             this.MainSplitContainer.Panel2.SuspendLayout();
@@ -70,6 +70,22 @@
             this.MainSplitContainer.SplitterDistance = 492;
             this.MainSplitContainer.TabIndex = 1;
             // 
+            // HostPanel
+            // 
+            this.HostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HostPanel.Location = new System.Drawing.Point(0, 0);
+            this.HostPanel.Name = "HostPanel";
+            this.HostPanel.Size = new System.Drawing.Size(492, 443);
+            this.HostPanel.TabIndex = 0;
+            // 
+            // TestControlPropertyGrid
+            // 
+            this.TestControlPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TestControlPropertyGrid.Location = new System.Drawing.Point(0, 22);
+            this.TestControlPropertyGrid.Name = "TestControlPropertyGrid";
+            this.TestControlPropertyGrid.Size = new System.Drawing.Size(235, 421);
+            this.TestControlPropertyGrid.TabIndex = 1;
+            // 
             // ComboBoxPanel
             // 
             this.ComboBoxPanel.Controls.Add(this.ControlComboBox);
@@ -89,22 +105,6 @@
             this.ControlComboBox.Size = new System.Drawing.Size(235, 21);
             this.ControlComboBox.TabIndex = 2;
             this.ControlComboBox.SelectedIndexChanged += new System.EventHandler(this.ControlComboBox_SelectedIndexChanged);
-            // 
-            // TestControlPropertyGrid
-            // 
-            this.TestControlPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TestControlPropertyGrid.Location = new System.Drawing.Point(0, 22);
-            this.TestControlPropertyGrid.Name = "TestControlPropertyGrid";
-            this.TestControlPropertyGrid.Size = new System.Drawing.Size(235, 421);
-            this.TestControlPropertyGrid.TabIndex = 1;
-            // 
-            // HostPanel
-            // 
-            this.HostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HostPanel.Location = new System.Drawing.Point(0, 0);
-            this.HostPanel.Name = "HostPanel";
-            this.HostPanel.Size = new System.Drawing.Size(492, 443);
-            this.HostPanel.TabIndex = 0;
             // 
             // ControlTestForm
             // 
