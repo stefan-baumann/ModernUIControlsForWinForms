@@ -247,18 +247,18 @@ namespace ModernUIControlsForWinForms.Controls
             if (on)
                 switch (state) {
                     case MouseState.Hover:
-                        return ColorHelpers.ColorFromHSL(onColor.GetHue(), (float)Math.Max(0, Math.Max(1, onColor.GetSaturation() * 0.87)), (float)Math.Max(0, Math.Max(1, onColor.GetBrightness() * 1.20)));
+                        return ColorHelpers.ColorFromHSL(onColor.GetHue(), (float)Math.Max(0, Math.Min(1, onColor.GetSaturation() * 0.87)), (float)Math.Max(0, Math.Min(1, onColor.GetBrightness() * 1.20)));
                     case MouseState.MouseDown:
-                        return ColorHelpers.ColorFromHSL(onColor.GetHue(), (float)Math.Max(0, Math.Max(1, onColor.GetSaturation() * 0.87)), (float)Math.Max(0, Math.Max(1, onColor.GetBrightness() * 1.45)));
+                        return ColorHelpers.ColorFromHSL(onColor.GetHue(), (float)Math.Max(0, Math.Min(1, onColor.GetSaturation() * 0.87)), (float)Math.Max(0, Math.Min(1, onColor.GetBrightness() * 1.45)));
                     default:
                         return onColor;
                 }
             else
                 switch (state) {
                     case MouseState.Hover:
-                        return ColorHelpers.ColorFromHSL(offColor.GetHue(), offColor.GetSaturation(), (float)Math.Max(0, Math.Max(1, offColor.GetBrightness() * 1.075)));
+                        return ColorHelpers.ColorFromHSL(offColor.GetHue(), offColor.GetSaturation(), (float)Math.Max(0, Math.Min(1, offColor.GetBrightness() * 1.075)));
                     case MouseState.MouseDown:
-                        return ColorHelpers.ColorFromHSL(offColor.GetHue(), offColor.GetSaturation(), (float)Math.Max(0, Math.Max(1, offColor.GetBrightness() * 1.15)));
+                        return ColorHelpers.ColorFromHSL(offColor.GetHue(), offColor.GetSaturation(), (float)Math.Max(0, Math.Min(1, offColor.GetBrightness() * 1.15)));
                     default:
                         return offColor;
                 }
