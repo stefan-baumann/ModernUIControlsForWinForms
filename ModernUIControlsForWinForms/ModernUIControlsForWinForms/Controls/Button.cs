@@ -121,11 +121,13 @@ namespace ModernUIControlsForWinForms.Controls
             button.DrawingSettings.Apply(g);
 
             //Draw Background
-            var BackColor = button.BackColor;
+            var BackColor = button.MouseState != MouseState.MouseDown ? button.BackColor : Color.Black;
+            if (button.MouseState == MouseState.Hover)
+                BackColor = BackColor.SetBrightness((float)Math.Max(0, Math.Min(1, BackColor.GetBrightness() * 1.0625)));
             g.Clear(BackColor);
 
             //Draw Text
-            var TextColor = button.ForeColor;
+            var TextColor = button.MouseState != MouseState.MouseDown ? button.ForeColor : button.ForeColor.SetBrightness(1 - button.ForeColor.GetBrightness());
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             g.DrawString(button.Text, button.Font, new SolidBrush(TextColor), button.ClientRectangle, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisCharacter });
         }
