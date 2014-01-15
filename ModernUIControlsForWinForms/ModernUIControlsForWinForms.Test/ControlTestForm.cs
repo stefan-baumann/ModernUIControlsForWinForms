@@ -59,14 +59,20 @@ namespace ModernUIControlsForWinForms.Test
             SetControl();
         }
 
+        private Control CurrentControl = null;
         private void SetControl()
         {
             //Remove last Control
+            if (CurrentControl !=null)
+            {
+                HostPanel.Controls.Remove(CurrentControl);
+                CurrentControl.Dispose();
+            }
 
-
-            var Control = (Control)Activator.CreateInstance((Type)ControlComboBox.SelectedItem);
-            HostPanel.Controls.Add(Control);
-            TestControlPropertyGrid.SelectedObject = Control;
+            CurrentControl = (Control)Activator.CreateInstance((Type)ControlComboBox.SelectedItem);
+            CurrentControl.Location = new Point(10, 10);
+            HostPanel.Controls.Add(CurrentControl);
+            TestControlPropertyGrid.SelectedObject = CurrentControl;
         }
     }
 }

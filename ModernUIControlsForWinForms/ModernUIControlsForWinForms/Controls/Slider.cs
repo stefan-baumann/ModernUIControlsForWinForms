@@ -195,7 +195,7 @@ namespace ModernUIControlsForWinForms
             g.FillRectangle(new SolidBrush(InnerColor), new Rectangle(new Point(4, 4), new Size(slider.Width - 8, slider.Height - 8)));
 
             //Draw the Slider Bar
-            var Slider = new Rectangle(new Point(slider.On ? slider.Width - 12 : 0, 0), new Size(12, 19));
+            var Slider = new Rectangle(new Point(slider.On ? slider.Width - 12 : 0, 0), new Size(12, slider.Height));
             g.FillRectangle(new SolidBrush(slider.SliderColor), Slider);
 
         }
