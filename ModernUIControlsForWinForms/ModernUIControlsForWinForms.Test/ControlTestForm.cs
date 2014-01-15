@@ -61,7 +61,12 @@ namespace ModernUIControlsForWinForms.Test
 
         private void SetControl()
         {
-            HostPanel.Controls.Add((Control)Activator.CreateInstance((Type)ControlComboBox.SelectedItem));
+            //Remove last Control
+
+
+            var Control = (Control)Activator.CreateInstance((Type)ControlComboBox.SelectedItem);
+            HostPanel.Controls.Add(Control);
+            TestControlPropertyGrid.SelectedObject = Control;
         }
     }
 }
