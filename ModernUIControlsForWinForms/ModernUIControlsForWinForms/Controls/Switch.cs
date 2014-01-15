@@ -8,11 +8,11 @@ namespace ModernUIControlsForWinForms.Controls
     /// <summary>
     /// A Control representing two States (On & Off) similar to a CheckBox
     /// </summary>
-    public class Slider : Control
+    public class Switch : Control
     {
         #region Initializing
 
-        public Slider()
+        public Switch()
         {
             //Set Styles for Custom Control Painting
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
@@ -180,7 +180,7 @@ namespace ModernUIControlsForWinForms.Controls
         private void Slider_Paint(object sender, PaintEventArgs e)
         {
             //Call the Method to draw the Slider
-            Slider.Draw(this, e.Graphics);
+            Switch.Draw(this, e.Graphics);
         }
 
         private void Slider_MouseDown(object sender, MouseEventArgs e)
@@ -207,7 +207,7 @@ namespace ModernUIControlsForWinForms.Controls
 
         #region Drawing
 
-        public static void Draw(Slider slider, Graphics g)
+        public static void Draw(Switch slider, Graphics g)
         {
             //Apply the DrawingSettings
             slider.DrawingSettings.Apply(g);
