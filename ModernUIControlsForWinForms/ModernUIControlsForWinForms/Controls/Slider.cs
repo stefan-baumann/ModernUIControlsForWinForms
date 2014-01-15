@@ -194,7 +194,7 @@ namespace ModernUIControlsForWinForms.Controls
 
         #region Drawing
 
-        internal static void Draw(Slider slider, Graphics g)
+        public static void Draw(Slider slider, Graphics g)
         {
             //Draw the Border
             g.DrawRectangle(new Pen(slider.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(slider.Width - 2, slider.Height - 2)));

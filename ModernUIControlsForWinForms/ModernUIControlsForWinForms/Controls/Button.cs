@@ -5,7 +5,13 @@ using System.Windows.Forms;
 
 namespace ModernUIControlsForWinForms.Controls
 {
-    class Button
+    public class Button : Control
     {
+
+        public static void Draw(Button slider, Graphics g)
+        {
+
+        }
+
     }
 }
