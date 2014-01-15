@@ -31,6 +31,15 @@ namespace ModernUIControlsForWinForms.Controls.Stuff
         public CompositingQuality CompositingQuality { get; set; }
         public InterpolationMode InterpolationMode { get; set; }
 
+        public void Apply(Graphics g)
+        {
+            g.SmoothingMode = this.SmoothingMode;
+            g.TextRenderingHint = this.TextRenderingHint;
+            g.PixelOffsetMode = this.PixelOffsetMode;
+            g.CompositingQuality = this.CompositingQuality;
+            g.InterpolationMode = this.InterpolationMode;
+        }
+
         public static DrawingSettings LowQuality
         {
             get {
