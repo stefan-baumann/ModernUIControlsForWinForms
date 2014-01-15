@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ButtonWithBorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Switch.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -54,6 +59,9 @@
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ButtonWithBorder.resx">
+      <DependentUpon>ButtonWithBorder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Switch.resx">
       <DependentUpon>Switch.cs</DependentUpon>
     </EmbeddedResource>
