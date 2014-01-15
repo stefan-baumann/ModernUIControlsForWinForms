@@ -23,9 +23,6 @@ namespace ModernUIControlsForWinForms.Controls
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
-            // Slider
-            // 
             this.Size = new System.Drawing.Size(50, 19);
             this.Click += new System.EventHandler(this.Slider_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Slider_Paint);
@@ -35,7 +32,6 @@ namespace ModernUIControlsForWinForms.Controls
             this.MouseLeave += new System.EventHandler(this.Slider_MouseLeave);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Slider_MouseUp);
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -148,6 +144,23 @@ namespace ModernUIControlsForWinForms.Controls
             }
         }
 
+        private DrawingSettings drawingSettings = DrawingSettings.HighQuality;
+        public DrawingSettings DrawingSettings
+        {
+            get
+            {
+                return this.drawingSettings;
+            }
+            set
+            {
+                if (this.drawingSettings != value)
+                {
+                    this.drawingSettings = value;
+                    this.Invalidate();
+                }
+            }
+        }
+
         #endregion
 
         #region Events
@@ -196,6 +209,9 @@ namespace ModernUIControlsForWinForms.Controls
 
         public static void Draw(Slider slider, Graphics g)
         {
+            //Apply the DrawingSettings
+            slider.DrawingSettings.Apply(g);
+
             //Draw the Border
             g.DrawRectangle(new Pen(slider.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(slider.Width - 2, slider.Height - 2)));
 
