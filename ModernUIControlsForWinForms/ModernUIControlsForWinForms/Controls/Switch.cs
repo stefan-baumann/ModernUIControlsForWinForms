@@ -24,7 +24,6 @@ namespace ModernUIControlsForWinForms.Controls
         {
             this.SuspendLayout();
             this.Size = new System.Drawing.Size(50, 19);
-            this.Click += new System.EventHandler(this.Slider_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Slider_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Slider_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Slider_MouseDown);
@@ -165,11 +164,6 @@ namespace ModernUIControlsForWinForms.Controls
 
         #region Events
         
-        private void Slider_Click(object sender, EventArgs e)
-        {
-            this.On = !this.On;
-        }
-
         private void Slider_KeyDown(object sender, KeyEventArgs e)
         {
             //The Spacebar toggles the Slider
@@ -201,6 +195,7 @@ namespace ModernUIControlsForWinForms.Controls
         private void Slider_MouseUp(object sender, MouseEventArgs e)
         {
             this.MouseState = MouseState.Hover;
+            this.On = !this.On;
         }
 
         #endregion
