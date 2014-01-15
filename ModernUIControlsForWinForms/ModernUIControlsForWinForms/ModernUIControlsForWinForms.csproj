@@ -44,7 +44,7 @@
     <Compile Include="Controls\Slider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Stuff\ColorExtensions.cs" />
+    <Compile Include="Controls\Stuff\ColorHelpers.cs" />
     <Compile Include="Controls\Stuff\DrawingSettings.cs" />
     <Compile Include="Controls\Stuff\MouseState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
