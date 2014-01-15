@@ -28,7 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.slider1 = new ModernUIControlsForWinForms.Controls.Slider();
             this.SuspendLayout();
+            // 
+            // slider1
+            // 
+            this.slider1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.slider1.Location = new System.Drawing.Point(60, 74);
+            this.slider1.Name = "slider1";
+            this.slider1.On = false;
+            this.slider1.Size = new System.Drawing.Size(50, 19);
+            this.slider1.SliderColor = System.Drawing.Color.Black;
+            this.slider1.SliderOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.slider1.SliderOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(198)))));
+            this.slider1.TabIndex = 0;
+            this.slider1.Text = "slider1";
             // 
             // MainForm
             // 
@@ -36,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.slider1);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.ResumeLayout(false);
@@ -43,6 +58,11 @@
         }
 
         #endregion
+
+        private Controls.Slider slider1;
+
+
+
 
 
     }
