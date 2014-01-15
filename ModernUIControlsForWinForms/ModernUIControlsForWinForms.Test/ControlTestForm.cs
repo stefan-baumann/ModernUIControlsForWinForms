@@ -69,8 +69,14 @@ namespace ModernUIControlsForWinForms.Test
                 CurrentControl.Dispose();
             }
 
-            CurrentControl = (Control)Activator.CreateInstance((Type)ControlComboBox.SelectedItem);
+            var CurrentType = (Type)ControlComboBox.SelectedItem;
+            CurrentControl = (Control)Activator.CreateInstance(CurrentType);
             CurrentControl.Location = new Point(10, 10);
+            CurrentControl.Name = string.Format("{0}1", CurrentType.Name);
+            if (string.IsNullOrWhiteSpace(CurrentControl.Text))
+                CurrentControl.Text = CurrentControl.Name;
+
+            //Add new Control
             HostPanel.Controls.Add(CurrentControl);
             TestControlPropertyGrid.SelectedObject = CurrentControl;
         }
