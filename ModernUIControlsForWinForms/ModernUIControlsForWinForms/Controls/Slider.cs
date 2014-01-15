@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ModernUIControlsForWinForms
+namespace ModernUIControlsForWinForms.Controls
 {
     /// <summary>
     /// A Control representing two States (On & Off) similar to a CheckBox
@@ -46,9 +46,24 @@ namespace ModernUIControlsForWinForms
 
         #endregion
 
-        #region Internal Variables
+        #region Internal Variables/Properties
 
-        protected MouseState MouseState = MouseState.Normal;
+        private MouseState mouseState = MouseState.Normal;
+        protected MouseState MouseState
+        {
+            get
+            {
+                return mouseState;
+            }
+            set
+            {
+                if (mouseState != value)
+                {
+                    mouseState = value;
+                    this.Invalidate();
+                }
+            }
+        }
 
         #endregion
 
@@ -163,22 +178,22 @@ namespace ModernUIControlsForWinForms
 
         private void Slider_MouseDown(object sender, MouseEventArgs e)
         {
-
+            this.MouseState = MouseState.MouseDown;
         }
 
         private void Slider_MouseEnter(object sender, EventArgs e)
         {
-
+            this.MouseState = MouseState.Hover;
         }
 
         private void Slider_MouseLeave(object sender, EventArgs e)
         {
-
+            this.MouseState = MouseState.Normal;
         }
 
         private void Slider_MouseUp(object sender, MouseEventArgs e)
         {
-
+            this.MouseState = MouseState.Hover;
         }
 
         #endregion
@@ -191,7 +206,7 @@ namespace ModernUIControlsForWinForms
             g.DrawRectangle(new Pen(slider.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(slider.Width - 2, slider.Height - 2)));
 
             //Draw the middle part
-            var InnerColor = GetInnerColor(slider.SliderOnColor, slider.SliderOnColor, slider.On, slider.MouseState);
+            var InnerColor = GetInnerColor(slider.SliderOnColor, slider.SliderOffColor, slider.On, slider.MouseState);
             g.FillRectangle(new SolidBrush(InnerColor), new Rectangle(new Point(4, 4), new Size(slider.Width - 8, slider.Height - 8)));
 
             //Draw the Slider Bar
