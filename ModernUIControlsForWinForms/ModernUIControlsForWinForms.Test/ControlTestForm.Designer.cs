@@ -31,6 +31,7 @@
             this.AssemblyComboBox = new System.Windows.Forms.ComboBox();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.HostPanel = new System.Windows.Forms.Panel();
+            this.BackgroundComboBox = new System.Windows.Forms.ComboBox();
             this.TestControlPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.ComboBoxPanel = new System.Windows.Forms.Panel();
             this.ControlComboBox = new System.Windows.Forms.ComboBox();
@@ -61,6 +62,7 @@
             // MainSplitContainer.Panel1
             // 
             this.MainSplitContainer.Panel1.Controls.Add(this.HostPanel);
+            this.MainSplitContainer.Panel1.Controls.Add(this.BackgroundComboBox);
             // 
             // MainSplitContainer.Panel2
             // 
@@ -76,8 +78,19 @@
             this.HostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HostPanel.Location = new System.Drawing.Point(0, 0);
             this.HostPanel.Name = "HostPanel";
-            this.HostPanel.Size = new System.Drawing.Size(492, 443);
-            this.HostPanel.TabIndex = 0;
+            this.HostPanel.Size = new System.Drawing.Size(492, 422);
+            this.HostPanel.TabIndex = 1;
+            // 
+            // BackgroundComboBox
+            // 
+            this.BackgroundComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BackgroundComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BackgroundComboBox.FormattingEnabled = true;
+            this.BackgroundComboBox.Location = new System.Drawing.Point(0, 422);
+            this.BackgroundComboBox.Name = "BackgroundComboBox";
+            this.BackgroundComboBox.Size = new System.Drawing.Size(492, 21);
+            this.BackgroundComboBox.TabIndex = 0;
+            this.BackgroundComboBox.SelectedIndexChanged += new System.EventHandler(this.BackgroundComboBox_SelectedIndexChanged);
             // 
             // TestControlPropertyGrid
             // 
@@ -135,6 +148,7 @@
         private System.Windows.Forms.ComboBox ControlComboBox;
         private System.Windows.Forms.PropertyGrid TestControlPropertyGrid;
         private System.Windows.Forms.Panel HostPanel;
+        private System.Windows.Forms.ComboBox BackgroundComboBox;
 
     }
 }

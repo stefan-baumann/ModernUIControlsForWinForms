@@ -34,6 +34,11 @@ namespace ModernUIControlsForWinForms.Test
             AssemblyComboBox.DisplayMember = "FullName";
 
             SetAssembly();
+
+            //Load all Systemcolors and set the selected Color to "Window"
+            BackgroundComboBox.DisplayMember = "Item1";
+            BackgroundComboBox.Items.AddRange(typeof(SystemColors).GetProperties().Where(pi => pi.PropertyType.FullName == "System.Drawing.Color").Select(pi => Tuple.Create<string, Color>(pi.Name, (Color)pi.GetValue(null, null))).ToArray());
+            BackgroundComboBox.SelectedIndex = BackgroundComboBox.Items.Count - 3;
         }
 
         private void AssemblyComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +81,11 @@ namespace ModernUIControlsForWinForms.Test
             //Add new Control
             HostPanel.Controls.Add(CurrentControl);
             TestControlPropertyGrid.SelectedObject = CurrentControl;
+        }
+
+        private void BackgroundComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HostPanel.BackColor = ((Tuple<string, Color>)BackgroundComboBox.SelectedItem).Item2;
         }
     }
 }
