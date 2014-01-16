@@ -72,6 +72,7 @@
             // 
             // HostPanel
             // 
+            this.HostPanel.BackColor = System.Drawing.SystemColors.Control;
             this.HostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HostPanel.Location = new System.Drawing.Point(0, 0);
             this.HostPanel.Name = "HostPanel";
