@@ -75,6 +75,12 @@
     <None Include="Controls\Class Diagrams\SwitchDiagram.cd" />
     <None Include="Controls\Class Diagrams\TextBoxDiagram.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Class Diagrams\BorderButtonDiagram.png" />
+    <Content Include="Controls\Class Diagrams\ButtonDiagram.png" />
+    <Content Include="Controls\Class Diagrams\SwitchDiagram.png" />
+    <Content Include="Controls\Class Diagrams\TextBoxDiagram.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
