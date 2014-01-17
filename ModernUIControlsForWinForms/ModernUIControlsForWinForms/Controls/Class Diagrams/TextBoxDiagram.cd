@@ -3,7 +3,7 @@
   <Class Name="ModernUIControlsForWinForms.Controls.TextBox">
     <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAQChRAAgaQIRgEFABoCABECAgAAAAAKCAAYTABBQAQ=</HashCode>
+      <HashCode>AERChRAAoaQcVgEFABoCABECAgIAACAKDgAYTBBBQgQ=</HashCode>
       <FileName>Controls\TextBox.cs</FileName>
     </TypeIdentifier>
   </Class>
