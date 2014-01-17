@@ -15,6 +15,16 @@ namespace ModernUIControlsForWinForms.Controls
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
             
             this.InitializeComponent();
+
+            //Redirect all Events raised by the Internal TextBox to the custom Events
+            this.Base.AcceptsTabChanged += this.OnAcceptsTabChanged;
+            this.Base.BorderStyleChanged += this.OnBorderStyleChanged;
+            this.Base.Click += this.OnClick;
+            this.Base.MouseClick += this.OnMouseClick;
+            this.Base.HideSelectionChanged += this.OnHideSelectionChanged;
+            this.Base.ModifiedChanged += this.OnModifiedChanged;
+            this.Base.MultilineChanged += this.OnMultilineChanged;
+            this.Base.ReadOnlyChanged += this.OnReadOnlyChanged;
         }
 
         private void InitializeComponent()
@@ -310,6 +320,42 @@ namespace ModernUIControlsForWinForms.Controls
         {
             this.Base.Undo();
         }
+
+        #endregion
+
+        #region TextBox Events
+
+        public event EventHandler AcceptsTabChanged;
+        private void OnAcceptsTabChanged(object sender, EventArgs e)
+        { if (this.AcceptsTabChanged != null) this.AcceptsTabChanged(this, e); }
+
+        public event EventHandler BorderStyleChanged;
+        private void OnBorderStyleChanged(object sender, EventArgs e)
+        { if (this.BorderStyleChanged != null) this.BorderStyleChanged(this, e); }
+
+        public new event EventHandler Click;
+        private void OnClick(object sender, EventArgs e)
+        { if (this.Click != null) this.Click(this, e); }
+
+        public new event EventHandler MouseClick;
+        private void OnMouseClick(object sender, EventArgs e)
+        { if (this.MouseClick != null) this.MouseClick(this, e); }
+
+        public event EventHandler HideSelectionChanged;
+        private void OnHideSelectionChanged(object sender, EventArgs e)
+        { if (this.HideSelectionChanged != null) this.HideSelectionChanged(this, e); }
+
+        public event EventHandler ModifiedChanged;
+        private void OnModifiedChanged(object sender, EventArgs e)
+        { if (this.ModifiedChanged != null) this.ModifiedChanged(this, e); }
+
+        public event EventHandler MultilineChanged;
+        private void OnMultilineChanged(object sender, EventArgs e)
+        { if (this.MultilineChanged != null) this.MultilineChanged(this, e); }
+
+        public event EventHandler ReadOnlyChanged;
+        private void OnReadOnlyChanged(object sender, EventArgs e)
+        { if (this.ReadOnlyChanged != null) this.ReadOnlyChanged(this, e); }
 
         #endregion
     }
