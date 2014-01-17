@@ -69,6 +69,12 @@
       <DependentUpon>Switch.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Class Diagrams\BorderButtonDiagram.cd" />
+    <None Include="Controls\Class Diagrams\ButtonDiagram.cd" />
+    <None Include="Controls\Class Diagrams\SwitchDiagram.cd" />
+    <None Include="Controls\Class Diagrams\TextBoxDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
