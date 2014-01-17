@@ -14,7 +14,16 @@ namespace ModernUIControlsForWinForms.Controls
             //Set Styles for Custom Control Painting
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
             
-            this.InitializeComponent();
+            //Configure the Control
+            this.Font = new Font("Segoe UI", 11f);
+            this.Base.Font = this.Font;
+            this.Base.Text = this.Name;
+            this.Base.BorderStyle = BorderStyle.None;
+            this.Base.Location = new Point(10, 6);
+            this.Base.Width = 150;
+            this.Size = this.Base.Size + new Size(20, 12);
+            this.Cursor = this.Base.Cursor;
+            this.Controls.Add(this.Base);
 
             //Redirect all Events raised by the Internal TextBox to the custom Events
             this.Base.AcceptsTabChanged += this.OnAcceptsTabChanged;
@@ -29,19 +38,6 @@ namespace ModernUIControlsForWinForms.Controls
             this.Base.KeyDown += this.KeyDown;
             this.Base.KeyPress += this.KeyPress;
             this.Base.KeyUp += this.KeyUp;
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            this.Size = new System.Drawing.Size(50, 19);
-            //this.Paint += new System.Windows.Forms.PaintEventHandler(this.Slider_Paint);
-            //this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Slider_KeyDown);
-            //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Slider_MouseDown);
-            //this.MouseEnter += new System.EventHandler(this.Slider_MouseEnter);
-            //this.MouseLeave += new System.EventHandler(this.Slider_MouseLeave);
-            //this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Slider_MouseUp);
-            this.ResumeLayout(false);
         }
 
         #endregion
@@ -122,15 +118,30 @@ namespace ModernUIControlsForWinForms.Controls
 
         #endregion
 
+        #region Events
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            TextBox.Draw(this, e.Graphics);
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            this.Base.Focus();
+        }
+
+        #endregion
+
         #region Drawing
 
-        public static void Draw(Switch slider, Graphics g)
+        public static void Draw(TextBox textBox, Graphics g)
         {
             //Apply the DrawingSettings
-            slider.DrawingSettings.Apply(g);
+            textBox.DrawingSettings.Apply(g);
 
-            //Draw the Border
-            g.DrawRectangle(new Pen(slider.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(slider.Width - 2, slider.Height - 2)));
+            //Propably nothing to do here
         }
         #endregion
 
