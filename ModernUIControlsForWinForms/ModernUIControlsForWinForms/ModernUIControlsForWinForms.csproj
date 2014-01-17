@@ -53,6 +53,9 @@
     <Compile Include="Controls\Stuff\ColorHelpers.cs" />
     <Compile Include="Controls\Stuff\DrawingSettings.cs" />
     <Compile Include="Controls\Stuff\MouseState.cs" />
+    <Compile Include="Controls\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
