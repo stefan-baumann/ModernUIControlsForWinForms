@@ -25,6 +25,10 @@ namespace ModernUIControlsForWinForms.Controls
             this.Base.ModifiedChanged += this.OnModifiedChanged;
             this.Base.MultilineChanged += this.OnMultilineChanged;
             this.Base.ReadOnlyChanged += this.OnReadOnlyChanged;
+            this.Base.DoubleClick += this.OnDoubleClick;
+            this.Base.KeyDown += this.KeyDown;
+            this.Base.KeyPress += this.KeyPress;
+            this.Base.KeyUp += this.KeyUp;
         }
 
         private void InitializeComponent()
@@ -356,6 +360,22 @@ namespace ModernUIControlsForWinForms.Controls
         public event EventHandler ReadOnlyChanged;
         private void OnReadOnlyChanged(object sender, EventArgs e)
         { if (this.ReadOnlyChanged != null) this.ReadOnlyChanged(this, e); }
+
+        public new event EventHandler DoubleClick;
+        private void OnDoubleClick(object sender, EventArgs e)
+        { if (this.DoubleClick != null) this.DoubleClick(this, e); }
+
+        public new event KeyEventHandler KeyDown;
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        { if (this.KeyDown != null) this.KeyDown(this, e); }
+
+        public new event KeyPressEventHandler KeyPress;
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
+        { if (this.KeyPress != null) this.KeyPress(this, e); }
+
+        public new event KeyEventHandler KeyUp;
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        { if (this.KeyUp != null) this.KeyUp(this, e); }
 
         #endregion
     }
