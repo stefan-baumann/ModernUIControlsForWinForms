@@ -47,6 +47,10 @@
     <Compile Include="Controls\BorderButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Rating.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Stuff\PathHelper.cs" />
     <Compile Include="Controls\Switch.cs">
       <SubType>Component</SubType>
     </Compile>
