@@ -5,5 +5,8 @@ A Small Collection of Controls with the Look of the "Modern UI"-Apps in Windows 
 
 Controls which are ready for use
 --------------------------------
-* Switch
+* BorderButton
 * Button
+* Rating
+* Switch
+* TextBox
