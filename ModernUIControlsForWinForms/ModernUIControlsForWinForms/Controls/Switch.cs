@@ -24,12 +24,12 @@ namespace ModernUIControlsForWinForms.Controls
         {
             this.SuspendLayout();
             this.Size = new System.Drawing.Size(50, 19);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Slider_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Slider_KeyDown);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Slider_MouseDown);
-            this.MouseEnter += new System.EventHandler(this.Slider_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.Slider_MouseLeave);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Slider_MouseUp);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Switch_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Switch_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Switch_MouseDown);
+            this.MouseEnter += new System.EventHandler(this.Switch_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.Switch_MouseLeave);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Switch_MouseUp);
             this.ResumeLayout(false);
         }
 
@@ -75,35 +75,35 @@ namespace ModernUIControlsForWinForms.Controls
             }
         }
 
-        private Color sliderOnColor = Color.FromArgb(0, 119, 198);
-        public Color SliderOnColor
+        private Color switchOnColor = Color.FromArgb(0, 119, 198);
+        public Color SwitchOnColor
         {
             get
             {
-                return this.sliderOnColor;
+                return this.switchOnColor;
             }
             set
             {
-                if (this.sliderOnColor != value)
+                if (this.switchOnColor != value)
                 {
-                    this.sliderOnColor = value;
+                    this.switchOnColor = value;
                     this.Invalidate();
                 }
             }
         }
 
-        private Color sliderOffColor = Color.FromArgb(166, 166, 166);
-        public Color SliderOffColor
+        private Color switchOffColor = Color.FromArgb(166, 166, 166);
+        public Color SwitchOffColor
         {
             get
             {
-                return this.sliderOffColor;
+                return this.switchOffColor;
             }
             set
             {
-                if (this.sliderOffColor != value)
+                if (this.switchOffColor != value)
                 {
-                    this.sliderOffColor = value;
+                    this.switchOffColor = value;
                     this.Invalidate();
                 }
             }
@@ -126,18 +126,18 @@ namespace ModernUIControlsForWinForms.Controls
             }
         }
 
-        private Color sliderColor = Color.Black;
-        public Color SliderColor
+        private Color switchColor = Color.Black;
+        public Color SwitchColor
         {
             get
             {
-                return this.sliderColor;
+                return this.switchColor;
             }
             set
             {
-                if (this.sliderColor != value)
+                if (this.switchColor != value)
                 {
-                    this.sliderColor = value;
+                    this.switchColor = value;
                     this.Invalidate();
                 }
             }
@@ -164,35 +164,35 @@ namespace ModernUIControlsForWinForms.Controls
 
         #region Events
         
-        private void Slider_KeyDown(object sender, KeyEventArgs e)
+        private void Switch_KeyDown(object sender, KeyEventArgs e)
         {
-            //The Spacebar toggles the Slider
+            //The Spacebar toggles the Switch
             if (e.KeyCode == Keys.Space)
                 this.On = !this.On;
         }
 
-        private void Slider_Paint(object sender, PaintEventArgs e)
+        private void Switch_Paint(object sender, PaintEventArgs e)
         {
-            //Call the Method to draw the Slider
+            //Call the Method to draw the Switch
             Switch.Draw(this, e.Graphics);
         }
 
-        private void Slider_MouseDown(object sender, MouseEventArgs e)
+        private void Switch_MouseDown(object sender, MouseEventArgs e)
         {
             this.MouseState = MouseState.MouseDown;
         }
 
-        private void Slider_MouseEnter(object sender, EventArgs e)
+        private void Switch_MouseEnter(object sender, EventArgs e)
         {
             this.MouseState = MouseState.Hover;
         }
 
-        private void Slider_MouseLeave(object sender, EventArgs e)
+        private void Switch_MouseLeave(object sender, EventArgs e)
         {
             this.MouseState = MouseState.Normal;
         }
 
-        private void Slider_MouseUp(object sender, MouseEventArgs e)
+        private void Switch_MouseUp(object sender, MouseEventArgs e)
         {
             this.MouseState = MouseState.Hover;
             this.On = !this.On;
@@ -202,21 +202,21 @@ namespace ModernUIControlsForWinForms.Controls
 
         #region Drawing
 
-        public static void Draw(Switch slider, Graphics g)
+        public static void Draw(Switch @switch, Graphics g)
         {
             //Apply the DrawingSettings
-            slider.DrawingSettings.Apply(g);
+            @switch.DrawingSettings.Apply(g);
 
             //Draw the Border
-            g.DrawRectangle(new Pen(slider.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(slider.Width - 2, slider.Height - 2)));
+            g.DrawRectangle(new Pen(@switch.BorderColor, 2), new Rectangle(new Point(1, 1), new Size(@switch.Width - 2, @switch.Height - 2)));
 
             //Draw the middle part
-            var InnerColor = GetInnerColor(slider.SliderOnColor, slider.SliderOffColor, slider.On, slider.MouseState);
-            g.FillRectangle(new SolidBrush(InnerColor), new Rectangle(new Point(4, 4), new Size(slider.Width - 8, slider.Height - 8)));
+            var InnerColor = GetInnerColor(@switch.SwitchOnColor, @switch.SwitchOffColor, @switch.On, @switch.MouseState);
+            g.FillRectangle(new SolidBrush(InnerColor), new Rectangle(new Point(4, 4), new Size(@switch.Width - 8, @switch.Height - 8)));
 
-            //Draw the Slider Bar
-            var Slider = new Rectangle(new Point(slider.On ? slider.Width - 12 : 0, 0), new Size(12, slider.Height));
-            g.FillRectangle(new SolidBrush(slider.SliderColor), Slider);
+            //Draw the Switch Bar
+            var SwitchPart = new Rectangle(new Point(@switch.On ? @switch.Width - 12 : 0, 0), new Size(12, @switch.Height));
+            g.FillRectangle(new SolidBrush(@switch.SwitchColor), SwitchPart);
 
         }
 
