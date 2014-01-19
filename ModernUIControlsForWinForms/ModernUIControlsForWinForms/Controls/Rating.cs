@@ -27,6 +27,10 @@ namespace ModernUIControlsForWinForms.Controls
             this.ResumeLayout(false);
         }
 
+        #endregion
+
+        #region Events
+
         private void Rating_Paint(object sender, PaintEventArgs e)
         {
             Rating.Draw(this, e.Graphics);
@@ -48,6 +52,23 @@ namespace ModernUIControlsForWinForms.Controls
                 if (value != this.starCount)
                 {
                     this.starCount = value;
+                    this.Invalidate();
+                }
+            }
+        }
+
+        private int value = 4;
+        public int Value
+        {
+            get
+            {
+                return this.value;
+            }
+            set
+            {
+                if (value != this.value)
+                {
+                    this.value = value;
                     this.Invalidate();
                 }
             }
@@ -87,6 +108,40 @@ namespace ModernUIControlsForWinForms.Controls
             }
         }
 
+        public Color deselectedColor = Color.FromArgb(108, 108, 108);
+        public Color DeselectedColor
+        {
+            get
+            {
+                return this.deselectedColor;
+            }
+            set
+            {
+                if (value != this.deselectedColor)
+                {
+                    this.deselectedColor = value;
+                    this.Invalidate();
+                }
+            }
+        }
+
+        public Color selectedColor = Color.FromArgb(0, 119, 198);
+        public Color SelectedColor
+        {
+            get
+            {
+                return this.selectedColor;
+            }
+            set
+            {
+                if (value != this.selectedColor)
+                {
+                    this.selectedColor = value;
+                    this.Invalidate();
+                }
+            }
+        }
+
         private DrawingSettings drawingSettings = DrawingSettings.HighQuality;
         public DrawingSettings DrawingSettings
         {
@@ -113,12 +168,13 @@ namespace ModernUIControlsForWinForms.Controls
             //Apply the DrawingSettings
             rating.DrawingSettings.Apply(g);
 
-            var Paths = new List<GraphicsPath>();
+            //Draw the Stars
             var StarSpacing = rating.Width / (rating.StarCount);
             var MiddleY = rating.Height / 2;
             for (int i = 1; i < rating.StarCount + 1; i++)
-                Paths.Add(PathHelper.GenerateStar(new PointF((float)(StarSpacing * (i - .5)), MiddleY), 5, rating.InnerRadius, rating.OutterRadius, 90));
-            Paths.ForEach(gp => g.FillPath(Brushes.Black, gp));
+            {
+                g.FillPath(new SolidBrush(rating.value >= i ? rating.SelectedColor : rating.DeselectedColor), PathHelper.GenerateStar(new PointF((float)(StarSpacing * (i - .5)), MiddleY), 5, rating.InnerRadius, rating.OutterRadius, 90));
+            }
         }
 
         #endregion
