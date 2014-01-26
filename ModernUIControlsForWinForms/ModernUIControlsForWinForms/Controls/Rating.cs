@@ -178,6 +178,5 @@ namespace ModernUIControlsForWinForms.Controls
         }
 
         #endregion
-
     }
 }
